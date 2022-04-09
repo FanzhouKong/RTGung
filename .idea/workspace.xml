@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1dee3174-4297-46ff-a042-d48c19b95bae" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/RT_main.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/RT_main.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/__version__" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/learner.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/ExtraTreesMSE/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/KNeighborsDist/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/KNeighborsUnif/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/LightGBM/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/LightGBMLarge/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/LightGBMXT/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/NeuralNetFastAI/model-internals.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/NeuralNetFastAI/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/NeuralNetTorch/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/NeuralNetTorch/net.params" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/NeuralNetTorch/temp_net.params" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/RandomForestMSE/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/WeightedEnsemble_L2/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/WeightedEnsemble_L2/utils/model_template.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/WeightedEnsemble_L2/utils/oof.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/XGBoost/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/XGBoost/xgb.ubj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/models/trainer.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/predictor.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/utils/data/X.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/utils/data/X_val.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/utils/data/y.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testplace/utils/data/y_val.pkl" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="27XBBczdDt9U2a4M05HzwVLHbVP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+</project>
