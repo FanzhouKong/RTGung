@@ -5,37 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1dee3174-4297-46ff-a042-d48c19b95bae" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/RT_main.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/RT_main.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/__version__" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/learner.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/ExtraTreesMSE/model.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/KNeighborsDist/model.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/KNeighborsUnif/model.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/LightGBM/model.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/LightGBMLarge/model.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/LightGBMXT/model.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/NeuralNetFastAI/model-internals.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/NeuralNetFastAI/model.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/NeuralNetTorch/model.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/NeuralNetTorch/net.params" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/NeuralNetTorch/temp_net.params" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/RandomForestMSE/model.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/WeightedEnsemble_L2/model.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/WeightedEnsemble_L2/utils/model_template.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/WeightedEnsemble_L2/utils/oof.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/XGBoost/model.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/XGBoost/xgb.ubj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/models/trainer.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/predictor.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/utils/data/X.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/utils/data/X_val.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/utils/data/y.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testplace/utils/data/y_val.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Libgen/cluster/formula_identifications.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/../Libgen/cluster/formula_identifications.tsv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/RT_analysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RT_analysis.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auto_rt_pred.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/conversion_function.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pka_lookup_pubchem.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="Jupyter Notebook" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,7 +34,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="27XBBczdDt9U2a4M05HzwVLHbVP" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -54,6 +46,28 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook:///Users/fanzhoukong/Documents/GitHub/Libgen/msp_reading_play_ground.ipynb</url>
+          <line>120</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook:///Users/fanzhoukong/Documents/GitHub/RT_analysis/multiRT_rebuild.ipynb</url>
+          <line>5</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook:///Users/fanzhoukong/Documents/GitHub/RT_analysis/multiRT_rebuild.ipynb</url>
+          <line>28</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
 </project>
