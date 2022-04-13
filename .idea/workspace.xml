@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1dee3174-4297-46ff-a042-d48c19b95bae" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Libgen/existing_databases_analysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../Libgen/existing_databases_analysis.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auto_rt_pred.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/multiRT_new_try.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/multiRT_new_try.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/multi_hilic_descriptors.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/toolsets/auto_rt_pred.py" beforeDir="false" afterPath="$PROJECT_DIR$/toolsets/auto_rt_pred.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +26,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../Libgen" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -46,8 +51,22 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/../Libgen/cluster" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/toolsets" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>

@@ -11,13 +11,16 @@ def make_split_index(data, train_ratio = 0.8, test_ratio = 0.2):
     if 'split_index' in data.columns:
         print("this dataset has split index already")
     else:
-        split_index = np.random.choice([1, 2], size=len(test_data), p=[train_ratio, test_ratio])
+        split_index = np.random.choice([1, 2], size=len(data), p=[train_ratio, test_ratio])
         data['split_index']=split_index
     return(data)
 
-def make_descriptors(data, ignore_3d_label = True):
-    calc = Calculator(descriptors, ignore_3d = ignore_3d_label)
-    mols = [Chem.MolFromSmiles(smi) for smi in data['smiles']]
+
+
+
+def make_descriptors(data, ignore_3D_label = True):
+    calc = Calculator(descriptors, ignore_3D = ignore_3D_label)
+    mols = [Chem.MolFromSmiles(smi) for smi in data['SMILES']]
     df = calc.pandas(mols, quiet = True)
     return(df)
 # def auto_rt_pred_with_autogluon(data, ignore_3d_label, savepath):
@@ -45,9 +48,9 @@ def make_descriptors(data, ignore_3d_label = True):
 def auto_rt_pred_with_autogluon_with_descriptor(df, savepath):
 
     df_train=df.loc[df['split_index'] == 1]
-    df_train=df_train.drop(['smiles', 'split_index'], axis=1)
+    df_train=df_train.drop(['SMILES', 'split_index'], axis=1)
     df_test=df.loc[df['split_index'] == 2]
-    df_test = df_test.drop(['smiles', 'split_index'], axis=1)
+    df_test = df_test.drop(['SMILES', 'split_index'], axis=1)
     label = 'retention_time'
     save_path =savepath
     predictor = TabularPredictor(label=label, path=save_path).fit(df_train)
@@ -65,3 +68,4 @@ print("Hi I am compiled version of the rt prediction using autogluon and mordred
 print("the usage is auto_rt_pred_with_autogluon(data, ignore_3d_label, savepath)")
 print("the data is a dataframe with columns smiles, retention_time, and split split_index (1 training, 2 test)")
 print("this function will returns a model")
+#%%
