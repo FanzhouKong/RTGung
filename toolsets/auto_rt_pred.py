@@ -6,16 +6,6 @@ warnings.filterwarnings("ignore")
 from autogluon.tabular import TabularDataset, TabularPredictor
 from sklearn.model_selection import train_test_split
 import numpy as np
-def make_split_index(data, train_ratio = 0.8, test_ratio = 0.2):
-#     first check if the dataframe has a split index or not
-    if 'split_index' in data.columns:
-        print("this dataset has split index already")
-    else:
-        split_index = np.random.choice([1, 2], size=len(data), p=[train_ratio, test_ratio])
-        data['split_index']=split_index
-    return(data)
-
-
 
 
 def make_descriptors(data, ignore_3D_label = True):
@@ -65,7 +55,7 @@ def auto_rt_pred_with_autogluon_with_descriptor(df, savepath):
     return(predictor)
 
 print("Hi I am compiled version of the rt prediction using autogluon and mordred descriptor calculator")
-print("the usage is auto_rt_pred_with_autogluon(data, ignore_3d_label, savepath)")
-print("the data is a dataframe with columns smiles, retention_time, and split split_index (1 training, 2 test)")
+print("the usage is make_descriptors(data) and auto_rt_pred_with_descriptor(data, savepath)")
+print("the data is a dataframe with columns smiles, retention_time, and split_index (1 for training, 2 for test)")
 print("this function will returns a model")
 #%%
