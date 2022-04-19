@@ -36,7 +36,7 @@ def make_train_test(data, train_ratio = 0.8, test_ratio = 0.2):
     return(train, test)
 
 def make_x_y(data, label = 'retention_time'):
-    y  = data[label]
+    y = data[label]
     x = data.drop([label], axis=1)
     non_cat_features = x.select_dtypes(include = [ "bool",'object']).columns
     x[non_cat_features]=x[non_cat_features].astype('category')
