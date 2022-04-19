@@ -25,6 +25,15 @@ def dataset_prep(data):
     return(data)
 
 
+
+def make_train_test(data, train_ratio = 0.8, test_ratio = 0.2):
+    data = make_split_index(data, train_ratio, test_ratio)
+    train = data.loc[data['split_index']==1]
+    train = train.drop(['Compound_name', 'Column','SMILES','split_index'], axis=1)
+    test = data.loc[data['split_index']==2]
+    test = test.drop(['Compound_name', 'Column','SMILES','split_index'], axis=1)
+    return(train, test)
+
 # def pre_process_data(data):
 #     # change column name if needed
 #     count = 0
@@ -58,3 +67,4 @@ def dataset_prep(data):
 #     if count2 == len(data.columns):
 #         print('no retention time in this dataset')
 #     return(data)
+print("i am updated!")
