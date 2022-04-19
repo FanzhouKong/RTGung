@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from sklearn.preprocessing import StandardScaler
 def make_split_index(data, train_ratio = 0.8, test_ratio = 0.2):
     #     first check if the dataframe has a split index or not
     if 'split_index' in data.columns:
@@ -34,6 +35,20 @@ def make_train_test(data, train_ratio = 0.8, test_ratio = 0.2):
     test = test.drop(['Compound_name', 'Column','SMILES','split_index'], axis=1)
     return(train, test)
 
+def make_x_y(data, label = 'retention_time'):
+    y  = data[label]
+    x = data.drop([label], axis=1)
+    non_cat_features = x.select_dtypes(include = [ "bool",'object']).columns
+    x[non_cat_features]=x[non_cat_features].astype('category')
+    cat_features = x.select_dtypes("category").columns
+    X_encoded = pd.get_dummies(x, columns=cat_features, drop_first=True)
+
+    num_features = x.select_dtypes(include = ["float64"]).columns
+    num_features= num_features.drop('pH')
+    scaler = StandardScaler()
+    X_scaled = X_encoded.copy()
+    X_scaled[num_features] = scaler.fit_transform(X_encoded[num_features])
+    return(X_scaled, y)
 # def pre_process_data(data):
 #     # change column name if needed
 #     count = 0
