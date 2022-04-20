@@ -14,6 +14,7 @@
       <change beforePath="$PROJECT_DIR$/../Libgen/toolsets/msms_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Libgen/toolsets/msms_search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Libgen/toolsets/tree_denoising.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Libgen/toolsets/tree_denoising.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mislabeled_data_handling.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/mislabeled_data_handling.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/toolsets/data_prep.py" beforeDir="false" afterPath="$PROJECT_DIR$/toolsets/data_prep.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
