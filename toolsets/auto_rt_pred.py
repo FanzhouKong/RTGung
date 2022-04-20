@@ -53,6 +53,19 @@ def auto_rt_pred_with_autogluon_with_descriptor(df, savepath):
     perf = predictor.evaluate_predictions(y_true=y_test, y_pred=y_pred, auxiliary_metrics=True)
     print(perf)
     return(predictor)
+def autogluon_fit_train_test(train, test, savepath):
+    label = 'retention_time'
+    save_path =savepath
+    predictor = TabularPredictor(label=label, path=save_path).fit(train)
+    results = predictor.fit_summary(show_plot=True)
+    print(results)
+    y_test = test[label]
+    x_test = test.drop([label], axis=1)
+    # predictor = TabularPredictor.load(save_path)
+    y_pred = predictor.predict(x_test)
+    perf = predictor.evaluate_predictions(y_true=y_test, y_pred=y_pred, auxiliary_metrics=True)
+    print(perf)
+    return(predictor)
 
 print("Hi I am compiled version of the rt prediction using autogluon and mordred descriptor calculator")
 print("the usage is make_descriptors(data) and auto_rt_pred_with_descriptor(data, savepath)")

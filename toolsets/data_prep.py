@@ -40,24 +40,25 @@ def make_train_test_with_index(data, split_index, train_index = 1, test_index = 
     return(train, test)
 
 def make_train_test(data, train_ratio = 0.8, test_ratio = 0.2):
-    data = make_split_index(data, train_ratio, test_ratio)
-    train = data.loc[data['split_index']==1]
-    train = train.drop(['SMILES','split_index'], axis=1)
-    test = data.loc[data['split_index']==2]
-    test = test.drop(['SMILES','split_index'], axis=1)
+    data_temp = data.copy()
+    data_temp = make_split_index(data_temp, train_ratio, test_ratio)
+    train = data_temp.loc[data_temp['split_index']==1]
+    train = train.drop(['split_index'], axis=1)
+    test = data_temp.loc[data_temp['split_index']==2]
+    test = test.drop(['split_index'], axis=1)
     return(train, test)
-def mislabeled_handling(data, clf, target = 'retention_time_cat',
-                        useless_columns = ['retention_time_cat','retention_time','Compound_name','SMILES']):
+def mislabeled_handling(data, clf, debug = False, target = 'retention_time_cat',
+                        useless_columns = ['retention_time_cat','retention_time']):
     SEED = 123456
     np.random.seed(SEED)
     random.seed(SEED)
     x = data.drop(useless_columns, axis = 1)
     y = data[target]
-    print(target)
+    # print(target)
     non_cat_features = x.select_dtypes(include = [ "bool",'object']).columns
     x[non_cat_features]=x[non_cat_features].astype('category')
-    # int64_features = x.select_dtypes(include = ['int64']).columns
-    # x[int64_features]=x[int64_features].astype('uint8')
+    int64_features = x.select_dtypes(include = ['int64']).columns
+    x[int64_features]=x[int64_features].astype('uint8')
     cat_features = x.select_dtypes("category").columns
     x_encoded = pd.get_dummies(x, columns=cat_features, drop_first=True)
     num_features = x.select_dtypes(include = ["float64"]).columns
@@ -65,7 +66,11 @@ def mislabeled_handling(data, clf, target = 'retention_time_cat',
     scaler = StandardScaler()
     x_scaled = x_encoded.copy()
     x_scaled[num_features] = scaler.fit_transform(x_encoded[num_features])
-    num_crossval_folds = LeaveOneOut()
+    if debug:
+        num_crossval_folds = 3
+    else:
+        num_crossval_folds = LeaveOneOut()
+
     pred_probs = cross_val_predict(
         clf,
         x_scaled,
@@ -74,6 +79,7 @@ def mislabeled_handling(data, clf, target = 'retention_time_cat',
         method="predict_proba",
         n_jobs=-1
     )
+    print("i have passed cv!")
     ranked_label_issues = find_label_issues(
         labels=y, pred_probs=pred_probs, return_indices_ranked_by="self_confidence"
     )
