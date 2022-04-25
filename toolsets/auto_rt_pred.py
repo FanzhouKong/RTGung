@@ -66,7 +66,6 @@ def autogluon_fit_train_test(train, test, savepath):
     perf = predictor.evaluate_predictions(y_true=y_test, y_pred=y_pred, auxiliary_metrics=True)
     print(perf)
     return(predictor)
-
 print("Hi I am compiled version of the rt prediction using autogluon and mordred descriptor calculator")
 print("the usage is make_descriptors(data) and auto_rt_pred_with_descriptor(data, savepath)")
 print("the data is a dataframe with columns smiles, retention_time, and split_index (1 for training, 2 for test)")
