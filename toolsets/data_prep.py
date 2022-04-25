@@ -3,10 +3,13 @@ import numpy as np
 import random
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import LeaveOneOut
-from optbinning import ContinuousOptimalBinning
-from cleanlab.filter import find_label_issues
+# from optbinning import ContinuousOptimalBinning
+# from cleanlab.filter import find_label_issues
 from sklearn.model_selection import cross_val_predict, cross_validate
 def make_split_index(data, train_ratio = 0.8, test_ratio = 0.2):
+    SEED = 123456
+    np.random.seed(SEED)
+    random.seed(SEED)
     #     first check if the dataframe has a split index or not
     if 'split_index' in data.columns:
         print("this dataset has split index already")
@@ -30,7 +33,6 @@ def dataset_prep(data):
     data.columns = original_colnames
     return(data)
 
-
 def make_train_test_with_index(data, split_index, train_index = 1, test_index = 2):
     # data = make_split_index(data, train_ratio, test_ratio)
     train = data.loc[data[split_index]==train_index]
@@ -42,9 +44,9 @@ def make_train_test_with_index(data, split_index, train_index = 1, test_index = 
 def make_train_test(data, train_ratio = 0.8, test_ratio = 0.2):
     data = make_split_index(data, train_ratio, test_ratio)
     train = data.loc[data['split_index']==1]
-    train = train.drop(['SMILES','split_index'], axis=1)
+    train = train.drop(['SMILES','split_index','Compound_name'], axis=1)
     test = data.loc[data['split_index']==2]
-    test = test.drop(['SMILES','split_index'], axis=1)
+    test = test.drop(['SMILES','split_index','Compound_name'], axis=1)
     return(train, test)
 def mislabeled_handling(data, clf, target = 'retention_time_cat',
                         useless_columns = ['retention_time_cat','retention_time','Compound_name','SMILES']):
