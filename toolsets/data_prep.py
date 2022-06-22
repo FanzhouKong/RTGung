@@ -44,9 +44,9 @@ def make_train_test_with_index(data, split_index, train_index = 1, test_index = 
 def make_train_test(data, train_ratio = 0.8, test_ratio = 0.2):
     data = make_split_index(data, train_ratio, test_ratio)
     train = data.loc[data['split_index']==1]
-    train = train.drop(['SMILES','split_index','Compound_name'], axis=1)
+    # train = train.drop(['SMILES','split_index','Compound_name'], axis=1)
     test = data.loc[data['split_index']==2]
-    test = test.drop(['SMILES','split_index','Compound_name'], axis=1)
+    # test = test.drop(['SMILES','split_index','Compound_name'], axis=1)
     return(train, test)
 def mislabeled_handling(data, clf, target = 'retention_time_cat',
                         useless_columns = ['retention_time_cat','retention_time','Compound_name','SMILES']):
