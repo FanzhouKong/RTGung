@@ -3,16 +3,12 @@ from rdkit import Chem
 from mordred import Calculator, descriptors
 import warnings
 warnings.filterwarnings("ignore")
-from autogluon.tabular import TabularDataset, TabularPredictor
+from autogluon.tabular import TabularPredictor
 from sklearn.model_selection import train_test_split
 import numpy as np
 
 
-def make_descriptors(data, ignore_3D_label = True):
-    calc = Calculator(descriptors, ignore_3D = ignore_3D_label)
-    mols = [Chem.MolFromSmiles(smi) for smi in data['SMILES']]
-    df = calc.pandas(mols, quiet = True)
-    return(df)
+
 # def auto_rt_pred_with_autogluon(data, ignore_3d_label, savepath):
 #     calc = Calculator(descriptors, ignore_3d = ignore_3d_label)
 #     mols = [Chem.MolFromSmiles(smi) for smi in data['smiles']]

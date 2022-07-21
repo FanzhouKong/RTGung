@@ -1,0 +1,20 @@
+Name: unknown0
+Notes: 04ef4c23cf5c0c60
+Precursor_type: 
+Spectrum_type: MS2
+PrecursorMZ: 74.09681701660156
+PrecursorMZ_alt46945232.0
+MS1_intensity74.09681701660156
+Instrument_type: orbitrap
+InChIKey: 
+Formula: 
+RETENTIONTIME: -1.2197496489041928
+Ion_mode: P
+charge: 1
+Comment: 5m hilic | orbitrap | beh amide | positive
+Splash: splash10-00di-9000000000-b8cabe1a1036dad89089
+Num peaks: 4
+50.8738	55321.77
+70.8206	64284.88
+74.0968	17439564.00
+74.1165	102553.04

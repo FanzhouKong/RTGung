@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import sklearn.ensemble
-import toolsets.auto_rt_pred as ap
+# import toolsets.auto_rt_pred as ap
 import toolsets.data_prep as data_prep
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.impute import SimpleImputer
@@ -15,7 +15,7 @@ from sklearn.model_selection import cross_val_predict, cross_validate
 from tqdm import tqdm
 import miceforest as mf
 import time
-def missing_descriptors_imputation(descriptors, perc = 0, datasets = 1, iterations = 3):
+def missing_descriptors_imputation(descriptors, perc = 0.4, datasets = 3, iterations = 3):
     descriptors.replace({False: 0, True: 1}, inplace=True)
     features_complete = descriptors.select_dtypes(exclude=['object'])
     features_missing = descriptors.select_dtypes(include=['object'])
@@ -23,7 +23,10 @@ def missing_descriptors_imputation(descriptors, perc = 0, datasets = 1, iteratio
     features_missing= features_missing.dropna(axis=1,how='all')
     if perc != 0:
         features_missing= features_missing.dropna(axis=1, thresh = features_missing.shape[0]*perc,how='all')
+
     features = pd.concat([features_complete, features_missing], axis=1)
+    print("the remaining non-na descriptors are ", (features.shape[1]))
+    # return(features)
     # Create kernels.
     start = time.time()
     kernel = mf.ImputationKernel(
@@ -33,7 +36,6 @@ def missing_descriptors_imputation(descriptors, perc = 0, datasets = 1, iteratio
         random_state=19981
     )
 
-    # # Run the MICE algorithm for 3 iterations on each of the datasets
     kernel.mice(iterations,verbose=False)
     end = time.time()
     feature_imp = kernel.impute_new_data(features)
