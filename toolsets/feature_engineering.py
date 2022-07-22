@@ -15,7 +15,23 @@ from sklearn.model_selection import cross_val_predict, cross_validate
 from tqdm import tqdm
 import miceforest as mf
 import time
-def missing_descriptors_imputation(descriptors, perc = 0.4, datasets = 3, iterations = 3):
+def descriptors_prep(descriptors, ifconcat = True):
+    smiles = descriptors['SMILES']
+    descriptors.replace({False: 0, True: 1}, inplace=True)
+    features_complete = descriptors.select_dtypes(exclude=['object'])
+    features_missing = descriptors.select_dtypes(include=['object'])
+    features_missing = features_missing.apply(pd.to_numeric, errors='coerce', downcast='float')
+    features_missing= features_missing.dropna(axis=1,how='all')
+
+    if ifconcat == True:
+        features = pd.concat([features_complete, features_missing], axis=1)
+        features.insert(0, "SMILES", descriptors['SMILES'])
+        return(features)
+    else:
+        features_complete.insert(0, "SMILES", smiles)
+        return(features_complete)
+
+def missing_descriptors_imputation(descriptors, perc = 0.4, datasets = 2, iterations = 3):
     descriptors.replace({False: 0, True: 1}, inplace=True)
     features_complete = descriptors.select_dtypes(exclude=['object'])
     features_missing = descriptors.select_dtypes(include=['object'])

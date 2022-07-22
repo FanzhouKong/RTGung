@@ -1,6 +1,8 @@
 import pandas as pd
 import toolsets.conversion_function as cf
 from tqdm import tqdm
+from rdkit import Chem
+from mordred import Calculator, descriptors
 def pick_results(data_binbase, data_msms, lowest_entropy_allowed = 0.5):
     score = []
     notes = []
@@ -53,36 +55,51 @@ def pick_results(data_binbase, data_msms, lowest_entropy_allowed = 0.5):
     result_filtered.reset_index(inplace=True, drop=True)
     return(result_filtered)
 
-def get_smiles(result_filtered):
+def get_smiles(data):
     # print(" i am in new")
     smiles = []
     inchies = []
-    for inchi in tqdm(result_filtered['library_inchi'].unique()):
+    for inchi in tqdm(data['library_inchi'].unique()):
         smiles.append(cf.get_something_from_pubchem("inchikey",inchi, "CanonicalSMILES"))
         inchies.append(inchi)
     data_smiles = []
     # return(inchies, smiles)
-    for index, row in result_filtered.iterrows():
+    for index, row in data.iterrows():
         inchi_index  = inchies.index(row['library_inchi'])
         data_smiles.append(smiles[inchi_index])
     # return(data_smiles)
-    result_filtered['SMILES']=data_smiles
-    return (result_filtered)
+    data['SMILES']=data_smiles
+    data = data[~data['SMILES'].isnull()]
+    data.reset_index(inplace=True, drop=True)
+    return (data)
 import toolsets.classyfire as cls
-def get_class(result_filtered):
+def get_class(data):
     # print(" i am in new")
     classes = []
     inchies = []
-    for inchi in tqdm(result_filtered['library_inchi'].unique()):
+    for inchi in tqdm(data['library_inchi'].unique()):
         classes.append(cls.get_classyfire(inchi, item = 'superclass'))
         inchies.append(inchi)
     data_classes = []
     # return(inchies, smiles)
-    for index, row in result_filtered.iterrows():
+    for index, row in data.iterrows():
         inchi_index  = inchies.index(row['library_inchi'])
         data_classes.append(classes[inchi_index])
     # return(data_smiles)
-    result_filtered['classes']=data_classes
-    return (result_filtered)
+    data['classes']=data_classes
+    return (data)
+
+def make_descriptors(data, ignore_3D_label=True):
+    calc = Calculator(descriptors, ignore_3D = ignore_3D_label)
+    mols = [Chem.MolFromSmiles(smi) for smi in data['SMILES'].unique()]
+    smiles = data['SMILES'].unique()
+    df = calc.pandas(mols, quiet = True)
+    df.insert(0, "SMILES", smiles)
+    # for index, row in data.iterrows():
+    #     index = smiles.index(row['SMILES'])
+
+
+    return(df)
+
 
 
