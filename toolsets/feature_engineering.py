@@ -60,16 +60,17 @@ def missing_descriptors_imputation(descriptors, perc = 0.4, datasets = 2, iterat
     print("the running time for mice is", (end-start)/60)
     return(features_impuated)
 from sklearn.model_selection import cross_val_predict, cross_validate, KFold
-def mislable_exclusion(data, feature_column, descriptor_column):
+def mislable_exclusion(data, feature_column, descriptor_column, quantile = 0.025):
+    # smiles = data['SMILES']
     data_confirmed = pd.DataFrame()
     for feature_subset in data[feature_column].unique():
-        data_temp = data.loc[data['Organic_modifier']==feature_subset]
-        data_temp=mislabel_exclusion_column(data_temp, descriptor_column)
+        data_temp = data.loc[data[feature_column]==feature_subset]
+        data_temp=mislabel_exclusion_by_feature(data_temp, descriptor_column, quantile)
         data_confirmed = pd.concat([data_confirmed, data_temp], axis = 0)
     data_confirmed.reset_index(inplace=True, drop=True)
     return(data_confirmed)
 
-def mislabel_exclusion_column(data_temp, descriptor_column):
+def mislabel_exclusion_by_feature(data_temp, descriptor_column, quantile = 0.025):
     # data_temp = data.loc[data['Organic_modifier']==modifer]
     data_temp.reset_index(inplace=True, drop=True)
     X = data_temp[descriptor_column]
@@ -85,8 +86,8 @@ def mislabel_exclusion_column(data_temp, descriptor_column):
         y_pred = clf.predict(X_test)
         diff_distribution_temp = pd.Series(y_test - y_pred)
         diff_distribution = diff_distribution.append(diff_distribution_temp)
-    outlier_indices = diff_distribution[(diff_distribution < diff_distribution.quantile(.025))|
-                                    (diff_distribution > diff_distribution.quantile(.975))].index
+    outlier_indices = diff_distribution[(diff_distribution < diff_distribution.quantile(quantile))|
+                                    (diff_distribution > diff_distribution.quantile(1-quantile))].index
     # data_temp = data_temp.drop(outlier_indices)
     return(data_temp.drop(outlier_indices))
 def make_dummies(data_confirmed, dummy_columns):

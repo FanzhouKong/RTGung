@@ -14,8 +14,9 @@ def make_split_index(data, train_ratio = 0.8, test_ratio = 0.2):
     if 'split_index' in data.columns:
         print("this dataset has split index already")
     else:
-        split_index = np.random.choice([1, 2], size=len(data), p=[train_ratio, test_ratio])
-        data['split_index']=split_index
+        unique_inchi = data['SMILES'].unique()
+        # split_index = np.random.choice([1, 2], size=len(data), p=[train_ratio, test_ratio])
+        # data['split_index']=split_index
     return(data)
 
 def dataset_prep(data):
