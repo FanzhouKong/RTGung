@@ -16,19 +16,22 @@ from tqdm import tqdm
 import miceforest as mf
 import time
 def descriptors_prep(descriptors, ifconcat = True):
-    smiles = descriptors['SMILES']
+    smiles = descriptors['library_smiles']
+    descriptors = descriptors.drop(['library_smiles'], axis = 1)
     descriptors.replace({False: 0, True: 1}, inplace=True)
     features_complete = descriptors.select_dtypes(exclude=['object'])
     features_missing = descriptors.select_dtypes(include=['object'])
     features_missing = features_missing.apply(pd.to_numeric, errors='coerce', downcast='float')
-    features_missing= features_missing.dropna(axis=1,how='all')
+    # features_missing= features_missing.dropna(axis=1,how='all')
 
     if ifconcat == True:
+        print("i am in true1!!!")
         features = pd.concat([features_complete, features_missing], axis=1)
-        features.insert(0, "SMILES", descriptors['SMILES'])
+        features.insert(0, "library_smiles", smiles)
         return(features)
     else:
-        features_complete.insert(0, "SMILES", smiles)
+        features_complete.insert(0, "library_smiles", smiles)
+        features_complete.reset_index(inplace=True, drop=True)
         return(features_complete)
 
 def missing_descriptors_imputation(descriptors, perc = 0.4, datasets = 2, iterations = 3):
@@ -75,7 +78,11 @@ def mislabel_exclusion_by_feature(data_temp, descriptor_column, quantile = 0.025
     data_temp.reset_index(inplace=True, drop=True)
     X = data_temp[descriptor_column]
     y = data_temp['retention_time']
-    kf = KFold(n_splits = (100), shuffle = True, random_state = 2)
+    if (len(data_temp)>100):
+        kf = KFold(n_splits = (100), shuffle = True, random_state = 2)
+    else:
+        kf = KFold(n_splits = (len(data_temp)), shuffle = True, random_state = 2)
+
     kf.get_n_splits(X)
     diff_distribution = pd.Series([])
     clf = RandomForestRegressor(n_jobs=-1)

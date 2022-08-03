@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH --job-name=fragmentation_tree_job_array
+#SBATCH --partition=production
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=20
+#SBATCH --export=ALL
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=fzkong@ucdavis.edu
+#SBATCH --output=job%j.out
+#SBATCH --error=job%j.err
+#SBATCH -t 00:40:00
+aklog
+pwd
+module load anaconda3/4.9.2
+source activate /share/fiehnlab/users/fzkong/conda-env
+cd /share/fiehnlab/users/fzkong/RT_analysis/
+# chmod +x /share/fiehnlab/software/xstate/build/bin/pymolcas
+#source /share/fiehnlab/software/xstate/.envre
+python descriptors_script.py data/lcbinbase/data_all_unique.csv $SLURM_ARRAY_TASK_ID
+# cp /yourms/ /tmp/xstate
+# rm -r /tmp/
+unlog
+

@@ -1,0 +1,3 @@
+aklog: Couldn't determine realm of user:aklog: No credentials cache found  while getting realm
+Module anaconda3-4.9.2-lssc0-linux loaded. Anaconda is an open source distribution of the Python programming language for large-scale data processing, predictive analytics, and scientific computing. It contains many of the well known python packages such as scipy, numpy, etc. Use the 'conda list' command to see a full listing of the packages. This anaconda package is a distribution of python 3.9.2.
+---
